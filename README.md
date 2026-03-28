@@ -79,9 +79,9 @@ This is the place for you to write reflections:
 #### Reflection Publisher-1
 1.  Untuk saat ini, karena semua *subscriber* memiliki perilaku yang identik, yaitu menerima notifikasi melalui HTTP POST ke URL yang terdaftar, menggunakan Model struct masih dianggap cukup. Tapi jika suatu saat sistem akan mengimplementasi berbagai tipe notifikasi yang berbeda, maka penggunaan *trait* akan sangat diperlukan untuk mematuhi prinsip OO.
 
-2.  
+2.  Karena id pada Product dan url pada Subscriber bersifat unik, memakai DashMap jauh lebih efisien karena memungkinkan operasi pencarian, penambahan, dan penghapusan dilakukan dengan kompleksitas waktu hanya O(1).
 
-3.  
+3.  Tetap membutuhkan DashMap karena pola Singleton hanya untuk memastikan ada satu *instance* objek global, seperti variabel SUBSCRIBERS, yang dibuat di memori, tetapi DashMap memastikan satu *instance* tersebut aman diakses oleh banyak *threads* bersamaan. Kalau hanya memakai Singleton, *compiler* akan menolak penggunaan HashMap untuk mencegah pengaksesan oleh banyak *threads* secara konkuren. Maka dari itu masih membutuhkan DashMap.
 
 #### Reflection Publisher-2
 
