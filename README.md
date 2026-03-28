@@ -50,13 +50,13 @@ You can install Postman via this website: https://www.postman.com/downloads/
 ## Mandatory Checklists (Publisher)
 -   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Subscriber model struct.`
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Subscriber repository.`
-    -   [ ] Commit: `Implement list_all function in Subscriber repository.`
-    -   [ ] Commit: `Implement delete function in Subscriber repository.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
+    -   [V] Commit: `Create Subscriber model struct.`
+    -   [V] Commit: `Create Notification model struct.`
+    -   [V] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
+    -   [V] Commit: `Implement add function in Subscriber repository.`
+    -   [V] Commit: `Implement list_all function in Subscriber repository.`
+    -   [V] Commit: `Implement delete function in Subscriber repository.`
+    -   [V] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -77,6 +77,11 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+1.  Untuk saat ini, karena semua *subscriber* memiliki perilaku yang identik, yaitu menerima notifikasi melalui HTTP POST ke URL yang terdaftar, menggunakan Model struct masih dianggap cukup. Tapi jika suatu saat sistem akan mengimplementasi berbagai tipe notifikasi yang berbeda, maka penggunaan *trait* akan sangat diperlukan untuk mematuhi prinsip OO.
+
+2.  
+
+3.  
 
 #### Reflection Publisher-2
 
