@@ -48,7 +48,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     (You might want to use `cargo check` if you only need to verify your work without running the app.)
 
 ## Mandatory Checklists (Publisher)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
+-   [V] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
 -   **STAGE 1: Implement models and repositories**
     -   [V] Commit: `Create Subscriber model struct.`
     -   [V] Commit: `Create Notification model struct.`
@@ -58,12 +58,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [V] Commit: `Implement delete function in Subscriber repository.`
     -   [V] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [V] Commit: `Create Notification service struct skeleton.`
+    -   [V] Commit: `Implement subscribe function in Notification service.`
+    -   [V] Commit: `Implement subscribe function in Notification controller.`
+    -   [V] Commit: `Implement unsubscribe function in Notification service.`
+    -   [V] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [V] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -84,5 +84,11 @@ This is the place for you to write reflections:
 3.  Tetap membutuhkan DashMap karena pola Singleton hanya untuk memastikan ada satu *instance* objek global, seperti variabel SUBSCRIBERS, yang dibuat di memori, tetapi DashMap memastikan satu *instance* tersebut aman diakses oleh banyak *threads* bersamaan. Kalau hanya memakai Singleton, *compiler* akan menolak penggunaan HashMap untuk mencegah pengaksesan oleh banyak *threads* secara konkuren. Maka dari itu masih membutuhkan DashMap.
 
 #### Reflection Publisher-2
+
+1.  Berdasarkan prinsip SRP, sebuah komponen idealnya hanya memiliki satu tanggung jawab, jika memasukkan semuanya ke dalam Model seperti MVC tradisional, kode akan sulit di-*maintain*. Model hanya bertanggung jawab sebagai representasi struktur data, Repository hanya untuk menangani operasi langsung dengan penyimpanan data atau *database*, dan Service khusus untuk menangani logika bisnis aplikasi dengan mengambil dan memproses data di Repository dan mengembalikannya ke Controller.
+
+2.  Misalnya, jika sebuah objek Product dibuat, model Product harus menangani penyimpanan dirinya ke *database*, lalu harus mencari dan memanggil model Subscriber satu per satu, lalu membuat objek Notification untuk mengirim pesan via HTTP Request. Dampaknya, model Product jadi menerima tanggung jawab unnecessary yang membuat kode menjadi sangat kompleks dan rawan rusak.
+
+3.  Dalam pengerjaan proyek ini, Postman membantu memastikan *endpoint* /product dan /notification/subscribe dapat menerima *payload* JSON dan mengembalikan status HTTP yang benar. Menurut saya, fitur Postman yang dapat membantu Group Project adalah Automated Tests yang memungkinkan penulisan *script* pengujian otomatis untuk memvalidasi respons dari API sudah sesuai standar tiap kali menjalanan *request*.
 
 #### Reflection Publisher-3
