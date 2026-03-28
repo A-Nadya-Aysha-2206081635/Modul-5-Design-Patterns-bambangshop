@@ -65,11 +65,11 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [V] Commit: `Implement unsubscribe function in Notification controller.`
     -   [V] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
-    -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
-    -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
-    -   [ ] Commit: `Implement publish function in Program service and Program controller.`
-    -   [ ] Commit: `Edit Product service methods to call notify after create/delete.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+    -   [V] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
+    -   [V] Commit: `Implement notify function in Notification service to notify each Subscriber.`
+    -   [V] Commit: `Implement publish function in Program service and Program controller.`
+    -   [V] Commit: `Edit Product service methods to call notify after create/delete.`
+    -   [V] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -92,3 +92,9 @@ This is the place for you to write reflections:
 3.  Dalam pengerjaan proyek ini, Postman membantu memastikan *endpoint* /product dan /notification/subscribe dapat menerima *payload* JSON dan mengembalikan status HTTP yang benar. Menurut saya, fitur Postman yang dapat membantu Group Project adalah Automated Tests yang memungkinkan penulisan *script* pengujian otomatis untuk memvalidasi respons dari API sudah sesuai standar tiap kali menjalanan *request*.
 
 #### Reflection Publisher-3
+
+1.  Di tutorial ini, saya memakai model Push. Publisher-nya mem-*push* data secara langsung ke *subscribers* ketika *event* berlangsung dan *subscriber* hanya menerima data ini dan memprosesnya.
+
+2.  Kelebihan jika memakai model Pull adalah *subscribers* hanya perlu mengambil data eksak yang diperlukan, dibanding harus menerima *payload* yang banyak jika hanya butuh satu detail di model Push. Kekurangan model Pull adalah jika sistemnya sangat konkuren, ketika ada *subscriber* yang menerima notifikasi untuk mem-*pull* data, *state* dari *publisher*-nya mungkin sudah berubah lagi sehingga data yang di-*pull* bukan yang awalnya diminta.
+
+3.  Dampak dari tidak menggunakan *multi*-*threading* di proses notifikasi jadinya *publisher* harus menotifikasi *subscribers* satu per satu dan kalau ada satu *subcriber* yang koneksinya lambat lalu *timeout*, keseluruhan *publisher* jadi menunggu satu *subscriber* itu.
